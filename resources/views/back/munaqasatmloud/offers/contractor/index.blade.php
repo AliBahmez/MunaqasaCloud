@@ -42,9 +42,7 @@
                                             <tr>
                                                 <td class="fw-bold">{{ $tender->name }}</td>
                                                 <td class="fw-bold">{{ $tender->title }}</td>
-
                                                 <td class="fw-bold">{{ $tender->ending_date }}</td>
-
 
                                             </tr>
                                         @endforeach
