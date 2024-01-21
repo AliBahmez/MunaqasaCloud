@@ -53,13 +53,7 @@ class Tender extends Controller
    
     return redirect()->route('tender.index');
 
-    // $tenderData = $request->all();
-    
-    // $tenderData['number'] = $request->id * 100;
-
-    //  MunaqasatcloudTender::create($tenderData);
-   
-    // return redirect()->route('tender.index');
+ 
 }
 
 

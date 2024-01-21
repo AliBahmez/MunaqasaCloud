@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Account;
 
 use App\Facades\Account\AccountFacade;
+use App\Http\Controllers\Controller;
 use App\Models\Account\AccountTenant;
 use App\Models\Account\AccountUser;
 use App\Models\MunaqasatCloud\MunaqasatCloudOrganization;
@@ -12,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class FoundationRegistration extends Controller
+class SignupFoundationController extends Controller
 {
     //
     public function view(Request $request)

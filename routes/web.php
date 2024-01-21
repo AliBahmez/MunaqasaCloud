@@ -3,26 +3,27 @@
 use App\Http\Controllers\Account\RoleController;
 use App\Http\Controllers\Account\SigninController;
 use App\Http\Controllers\Account\SignoutController;
-use App\Http\Controllers\Account\SignupController;
+use App\Http\Controllers\Account\SignupContractorController;
+
 use App\Http\Controllers\Account\UserController;
 use App\Http\Controllers\Contractor\ApplicantContractor;
 use App\Http\Controllers\Contractor\MyTender;
 use App\Http\Controllers\Contractor\OfferContractor;
 use App\Http\Controllers\Contractor\TenderContractor;
 use App\Http\Controllers\Contractor\TenderDocument;
-use App\Http\Controllers\ContractorRegistration;
-use App\Http\Controllers\Controller;
+
 use App\Http\Controllers\dashboard\ContractorDashboardController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\FoundationDashboardController;
 use App\Http\Controllers\Dashboard\LandingPage;
-use App\Http\Controllers\FoundationRegistration;
+
 use App\Http\Controllers\MunaqasatCloud\Organization;
 use App\Http\Controllers\MunaqasatCloud\Contractors;
 use App\Http\Controllers\MunaqasatCloud\Notebook;
 use App\Http\Controllers\MunaqasatCloud\Tender;
 use App\Http\Controllers\MunaqasatCloud\TenderOffer;
-use App\Http\Controllers\Tendersubmitting;
+use App\Http\Controllers\Account\SignupFoundationController;
+use App\Http\Controllers\MunaqasatCloud\Tendersubmitting;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,11 +57,10 @@ Route::post('/', [LandingPage::class, 'store'])->name('home.store');
 Route::get('/signin', [SigninController::class, 'view'])->name('account.front.signin');
 Route::post('/signin', [SigninController::class, 'authenticate'])->name('account.front.signin.submit');
 //
-Route::get('/signup', [SignupController::class, 'view'])->name('account.front.signup');
-Route::post('/signup', [SignupController::class, 'store'])->name('account.front.store');
-Route::post('/account/freelancer/store', [ContractorRegistration::class, 'store'])->name('freelancer.store');
-Route::post('/signinfoundation/store', [FoundationRegistration::class, 'store'])->name('FoundationRegistration.store');
-Route::get('/signinfoundation', [FoundationRegistration::class, 'view'])->name('account.front.signupfoundation');
+Route::get('/signup', [SignupContractorController::class, 'view'])->name('account.front.signup');
+Route::post('/account/freelancer/store', [SignupContractorController::class, 'store'])->name('freelancer.store');
+Route::post('/signinfoundation/store', [SignupFoundationController::class, 'store'])->name('FoundationRegistration.store');
+Route::get('/signinfoundation', [SignupFoundationController::class, 'view'])->name('account.front.signupfoundation');
 Route::get('/unauthorized', function(){return view('front.account.unauthorized');})->name('unauthorized');
    
 //
@@ -99,14 +99,14 @@ Route::get('/platform/account', function () {
     Route::resource('/tenant/tender', Tender::class);
     Route::resource('/tender/notebook', Notebook::class);
     Route::get('/tender/notebook/createnote/{id}' , [Notebook::class, 'createnote']) ->name('createnote');
-    Route::resource('/tenant/offers', TenderOffer::class );
+    Route::resource('/tenant/offers', TenderOffer::class )->only(['index']);
     Route::get('/tenant/offers/{tenderId}/{freelancerId}', [TenderOffer::class, 'showoffers'])->name('tenant.offers.showoffers');
-    Route::resource('/tenant/contractors', \App\Http\Controllers\MunaqasatCloud\Tendersubmitting::class);
-    Route::resource('/freelancer/tendersfree' , ApplicantContractor::class);
-    Route::resource('/freelancer/notebookfreelancer', TenderDocument::class);
-    Route::resource('freelancer/tenders', TenderContractor::class);
-    Route::resource('/freelancer/frrelanceroffers', OfferContractor::class);
-    Route::resource('/freelancer/mytenders', MyTender::class);
-    Route::get('/Tendersubmitting', [\App\Http\Controllers\MunaqasatCloud\Tendersubmitting::class, 'index']);
+    Route::resource('/tenant/contractors',Tendersubmitting::class)->only(['index','show','update','destroy']);
+    Route::resource('/freelancer/tendersfree' , ApplicantContractor::class)->only(['store','show']);
+    Route::resource('/freelancer/notebookfreelancer', TenderDocument::class)->only(['store','show']);
+    Route::resource('freelancer/tenders', TenderContractor::class)->only(['index','create','show']);
+    Route::resource('/freelancer/frrelanceroffers', OfferContractor::class)->only(['index','show']);
+    Route::resource('/freelancer/mytenders', MyTender::class)->only(['index',]);
+    Route::get('/Tendersubmitting', [Tendersubmitting::class, 'index']);
     
 });   

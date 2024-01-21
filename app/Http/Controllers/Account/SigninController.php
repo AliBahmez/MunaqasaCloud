@@ -25,10 +25,8 @@ class SigninController extends Controller
         if (Auth::check()) {
             // User is already signed in, redirect to a different page
             $tenantId = AccountFacade::getTenantId();
-            // $name = AccountTenant::find($tenantId);
-            // dd($name->label);
+           
             $platform = AccountFacade::getTenantName();
-            // dd($platform);
             $foundation = MunaqasatCloudOrganization::find($tenantId);
             $freelancer = MunaqasatcloudFreelancer::find($tenantId);
             if($platform === 'platform'){

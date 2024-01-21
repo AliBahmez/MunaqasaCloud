@@ -187,14 +187,11 @@
 
                             <li>
                                 <a href="{{ route('offers.index') }}"
-                                    class="nav-item nav-link  fw-bold {{ request()->is('/tenant/offers') ? 'active' : '' }}"><i
+                                    class="nav-item nav-link  fw-bold {{ request()->is('tenant/offers') ? 'active' : '' }}"><i
                                         class="fas fa-tags ms-2"></i>الــعــروض</a>
                             </li>
                             
-                            {{-- <li>
-                                <a href="{{route('tenant.messages')}}" class="nav-item nav-link fw-bold"><i class="fas fa-envelope ms-2"></i>الــرســائــل</a>
-                            </li>
-                            <li>--}}
+                           
                               
                     @endif
                     @php
@@ -233,8 +230,7 @@
 
                         </ul>
                     @endif
-                    {{-- <a href="index.html" class="nav-item nav-link fw-bold "><i class="bi bi-box-arrow-right  ms-2"></i>تـسـجـيـل الـخـروج</a> --}}
-                </div>
+                     </div>
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -313,9 +309,7 @@
         <!-- Content End -->
 
 
-        <!-- Back to Top -->
-        {{-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> --}}
-    </div>
+        </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -349,43 +343,7 @@
             }
         }
 
-        //   **********************************************
-        //     window.addEventListener('DOMContentLoaded', function() {
-        //   var canvas = document.getElementById('progressCanvas');
-        //   var context = canvas.getContext('2d');
-        //   var x = canvas.width / 2;
-        //   var y = canvas.height / 2;
-        //   var radius = 60;
-        //   var startAngle = -Math.PI / 2;
-        //   var endAngle = 0;
-        //   var counterClockwise = false;
-        //   var progress = 0; // Set progress value between 0 and 100
-
-        //   function drawProgress() {
-        //     context.clearRect(0, 0, canvas.width, canvas.height);
-
-        //     // Draw background circle
-        //     context.beginPath();
-        //     context.arc(x, y, radius, 0, 2 * Math.PI);
-        //     context.lineWidth = 10;
-        //     context.strokeStyle = '#000';
-        //     context.stroke();
-
-        //     // Draw progress arc
-        //     context.beginPath();
-        //     context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
-        //     context.lineWidth = 10;
-        //     context.strokeStyle = '#EB1616'; // Set progress bar color
-        //     context.stroke();
-
-        //     // Display progress text
-        //     context.font = '24px Arial';
-        //     context.fillStyle = '#fff';
-        //     context.textAlign = 'center';
-        //     context.textBaseline = 'middle';
-        //     context.fillText("30 يـوم" , x, y);
-        //     // context.fillText('30');
-        //   }
+       
 
         function animateProgress() {
             var progressToFill = progress / 100;
