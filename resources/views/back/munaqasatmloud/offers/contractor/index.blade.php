@@ -45,9 +45,7 @@
 
                                                 <td class="fw-bold">{{ $tender->ending_date }}</td>
 
-                                                @if ($tender->tenderDocument)
-                                                    <td class="fw-bold">{{ $tender->tenderDocument->created_at }};</td>
-                                                @endif
+
                                             </tr>
                                         @endforeach
                                     @endif
@@ -80,23 +78,20 @@
                                             <tr>
                                                 <td class="fw-bold">{{ $tender->name }}</td>
                                                 <td class="fw-bold">{{ $tender->title }}</td>
-
                                                 <td class="fw-bold">{{ $tender->ending_date }}</td>
-
-                                                @if ($tender->tenderDocument)
-                                                    <td class="fw-bold">{{ $tender->tenderDocument->created_at }};</td>
+                                                @if ($tender->open_date < now())
+                                                    <td>
+                                                        <a class="btn btn-sm  fw-bold "
+                                                            href="{{ route('frrelanceroffers.show', $tender->id) }}"><i
+                                                                class="bi bi-info-circle fw-bold  f-18"></i></a>
+                                                    </td>
+                                                @else
+                                                    <td>يوم فتح المظاريف</td>
                                                 @endif
-                                                <td>
-                                                    <a class="btn btn-sm  fw-bold "
-                                                        href="{{ route('frrelanceroffers.show', $tender->id) }}"><i
-                                                            class="bi bi-info-circle fw-bold  f-18"></i></a>
-                                                </td>
+
                                             </tr>
                                         @endforeach
                                     @endif
-
-
-
                                 </tbody>
                             </table>
                         </div>

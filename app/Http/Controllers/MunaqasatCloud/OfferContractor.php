@@ -28,11 +28,8 @@ class OfferContractor extends Controller
     })->where('state', 1)->get();
     $tendersfinsh = MunaqasatcloudTender::whereHas('tenderApplicants.tenderOffers', function ($query) use ($freelancerId) {
         $query->where('freelancer_id', $freelancerId);
-        })->where('open_date', '<' ,now())->get();
-        // $contractor = MunaqasatcloudFreelancer::with('tenderApplicants')
-        // ->where('id', $freelancerId)
-        // ->first();
-        // dd($contractor);
+        })->where('state', 2)->get();
+       
    return view('back.munaqasatmloud.offers.contractor.index', compact('tendersactive','tendersfinsh')) ;
   
         
