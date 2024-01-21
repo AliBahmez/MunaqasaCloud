@@ -134,7 +134,7 @@
                 <div class="h-100 bg-secondary1 rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-0 ">
                         <h6 class="mb-0 fw-bold">الـمـقـاولـيـن</h6>
-                        <a href="" class="fw-bold">عــرض الـكـل</a>
+                        <a href="{{route('contractors.index')}}" class="fw-bold">عــرض الـكـل</a>
                     </div>
                     <div class="container-fluid pt-2 px-0  mb-3">
                         <div class="bg-secondary1 text-center rounded ">
@@ -153,12 +153,11 @@
                                         @foreach ($TenderSubmit->tenders as $tender)
                                             @foreach ($tender->tenderApplicants as $applicant)
                                                 <tr>
-                                                    {{-- <td class="fw-bold">{{ $applicant->freelancer->name ? $applicant->freelancer->name : "لايوجد مقاول" }}</td> --}}
                                                     @if ($applicant->status === 0)
                                                         <td class="fw-bold">{{ $applicant->freelancer->name }} </td>
 
                                                         <td class="fw-bold">{{ $tender->name }}</td>
-                                                       <td>
+                                                        <td>
                                                             {{ $applicant->id }}
                                                             <a class="btn btn-sm fw-bold"
                                                                 href="{{ route('contractors.show', $applicant->id) }}"><i
@@ -168,7 +167,7 @@
                                                 </tr>
                                             @endforeach
                                         @endforeach
-                                   </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

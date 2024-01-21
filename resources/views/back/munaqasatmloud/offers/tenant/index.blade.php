@@ -85,6 +85,7 @@
                                             <td class="fw-bold">{{ $tender->name }}</td>
                                             <td class="fw-bold">{{ $applicant->freelancer->name }}</td>
                                             <td class="fw-bold">{{ $offer->created_at }}</td>
+                                            @if ($tender->open_date < now())
                                             <td>
                                                
                                                 <a class="btn btn-sm fw-bold" href="{{ route('tenant.offers.showoffers', ['tenderId' => $tender->id, 'freelancerId' => $applicant->freelancer->id]) }}">
@@ -92,6 +93,10 @@
                                                 </a>
                                                 
                                             </td>
+                                            @else
+                                            <td>يوم فتح المظاريف</td>
+                                            @endif
+                                            
                                         </tr>
                                        
                                         @break

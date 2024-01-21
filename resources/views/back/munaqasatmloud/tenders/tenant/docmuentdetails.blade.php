@@ -52,21 +52,21 @@
             <div class="table-responsive">
 
                 {{--  --}}
-                <table class="table text-start table-striped table-borderless align-middle  table-hover mb-0 text-center">
+                <table class="table  w-100 table-striped table-borderless align-middle  table-hover mb-0 text-center "  >
                     <thead>
-                        <tr class="text-white">
-                            <th style="width: 30% !important" scope="col ">الــبــنــود </th>
-                            <th style="width: 60% !important" scope="col"> الــمــنــاقــصــة</th>
+                       
+                            <th class="w-30" >الــبــنــود </th>
+                            <th class="w-55">الــوصــف</th>
                             @if ($tender->state == 0)
-                                <th scope="col">عــمــلــيــات</th>
+                                <th >عــمــلــيــات</th>
                             @endif
-                        </tr>
+                       
                     </thead>
                     <tbody>
                         @foreach ($docmuents as $docmuent)
                             <tr>
                                 <td class="px-3">{{ $docmuent->technical_title }}</td>
-                                <td class="px-3">{{ $docmuent->technical_description }}</td>
+                                <td class="px-3 " >{{ $docmuent->technical_description }}</td>
                                 @if ($tender->state == 0)
                                     <td class="fw-bold ">
                                         {{-- <a class="btn btn-sm  fw-bold " href="{{ route('notebook.show',  $docmuent->id) }}"><i class="bi bi-info-circle fw-bold  f-18"></i></a> --}}

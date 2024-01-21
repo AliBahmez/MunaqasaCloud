@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Contractor;
+namespace App\Http\Controllers\MunaqasatCloud;
 
 use App\Facades\Account\AccountFacade;
 use App\Http\Controllers\Controller;

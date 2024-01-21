@@ -59,7 +59,6 @@
                     <thead class="text-white">
 
                         <th scope="col">اسـم </th>
-                        {{-- <th scope="col">عـنـوان </th> --}}
                         <th scope="col">بـيـانـات الأتـصـال</th>
                         <th scope="col">رقم السحل التجاري</th>
                         <th scope="col">عـمـلـيـات</th>
@@ -69,7 +68,6 @@
                         <tr hidden></tr>
                         @foreach ($organizations as $org)
                             <tr>
-                                {{-- <td class="fw-bold">{{ $org->name }}</td> --}}
                                 <td class="fw-bold">{{ $org->title }}</td>
                                 <td class="fw-bold">{{ $org->contact_statement }}</td>
                                 <td class="fw-bold">{{ $org->trade_document }}</td>
@@ -104,7 +102,6 @@
                         <thead class="text-white">
 
                             <th scope="col">الإســم</th>
-                            {{-- <th scope="col">عـنـوان</th> --}}
                             <th scope="col">عـمـلـيـات </th>
 
                         </thead>

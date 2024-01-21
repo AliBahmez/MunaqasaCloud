@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Contractor;
+namespace App\Http\Controllers\MunaqasatCloud;
 
 use App\Facades\Account\AccountFacade;
 use App\Http\Controllers\Controller;
 use App\Models\MunaqasatCloud\MunaqasatcloudTender;
-use App\Models\MunaqasatCloud\MunaqasatcloudTenderApplicant;
-use App\Models\MunaqasatCloud\MunaqasatcloudTenderOffer;
 use Illuminate\Http\Request;
 
-class TenderContractor extends Controller
+class MyTender extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +16,30 @@ class TenderContractor extends Controller
     {
         //
         $freelancerId = AccountFacade::getTenantId();
+      
 
-
-        $tenders = MunaqasatcloudTender::where('state', 1)//'فعالة'
-            ->whereDoesntHave('tenderApplicants', function ($query) use ($freelancerId) {
+        $tenders = MunaqasatcloudTender::where('state', 1)
+            ->whereHas('tenderApplicants', function ($query) use ($freelancerId) {
+                $query->where('freelancer_id', $freelancerId)
+                    ->where('status', 0); 
+                })
+            ->orderBy('created_at', 'desc')
+            ->get();
+            
+            $tendersactive = MunaqasatcloudTender::where('state', 1)
+            ->whereHas('tenderDocuments')
+            ->whereHas('tenderApplicants', function ($query) use ($freelancerId) {
+                $query->where('freelancer_id', $freelancerId)
+                    ->where('status', 1);
+            })
+            ->whereDoesntHave('tenderApplicants.tenderOffers', function ($query) use ($freelancerId) {
                 $query->where('freelancer_id', $freelancerId);
             })
             ->orderBy('created_at', 'desc')
-            ->get(); return view('back.munaqasatmloud.tenders.contractors.tender.index', compact('tenders'));
+            ->get();
+
+                            
+            return view('back.munaqasatmloud.tenders.contractors.mytender.index', compact('tenders','tendersactive'));
 
     }
 
@@ -35,7 +49,7 @@ class TenderContractor extends Controller
     public function create()
     {
         //
-      return view('back.freelancer.tenders.details');
+       
     }
 
     /**
@@ -52,20 +66,6 @@ class TenderContractor extends Controller
     public function show(string $id)
     {
         //
-        $freelancerId = AccountFacade::getTenantId();
-        ;
-        $tender = MunaqasatcloudTender::find($id);
-        $tenderApplicant = MunaqasatcloudTenderApplicant::where('tender_id', $id)
-        ->where('freelancer_id', $freelancerId)
-        ->first();
-        
-        $tenderOffers = MunaqasatcloudTenderOffer::whereHas('tenderApplicant', function ($query) use ($freelancerId, $id) {
-            $query->where('freelancer_id', $freelancerId)
-            ->where('tender_id', $id);
-        })->get();
-        
-        return view('back.munaqasatmloud.tenders.contractors.tender.details',compact('tender','tenderApplicant','tenderOffers'));
-        
     }
 
     /**

@@ -9,7 +9,7 @@
         <div class="bg-secondary1 text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0 fw-bold">الـمـنـاقـصـات </h6>
-                <a href="{{ route('tender.index') }}" class="fw-bold">عــرض الـكـل</a>
+                <a href="{{ route('tenders.index') }}" class="fw-bold">عــرض الـكـل</a>
             </div>
 
 
@@ -167,23 +167,24 @@
                 <div class="h-100 bg-secondary1 rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-2">
                         <h6 class="mb-0 fw-bold"> الــعــروض الـفـعـالـة</h6>
-                        <a href="{{ route('offers.index') }}" class="fw-bold">عــرض الـكـل</a>
+                        <a href="{{ route('frrelanceroffers.index') }}" class="fw-bold">عــرض الـكـل</a>
                     </div>
                     <div class="container-fluid pt-2 px-0  mb-2">
-                        <div class="bg-secondary text-center rounded ">
+                        <div class="bg-secondary1 text-center rounded ">
 
                             <div class="table-responsive">
-                                <table class="table table-striped table-borderless  align-middle mb-0 text-center">
+                                <table class="table table-striped table-borderless   align-middle mb-0 text-center">
                                     <thead>
-                                        <tr class="text-white fs-5">
+                                       
                                             <th scope="col">الـمـنـاقـصـة</th>
                                             <th scope="col">جــهــة</th>
                                             <th scope="col">تـاريـخ الـتـقـديـم</th>
-                                        </tr>
+                                      
                                     </thead>
                                     <tbody>
                                         @if ($tendersactive->isNotEmpty())
                                             @foreach ($tendersactive as $tender)
+                                               <tr >
                                                 <td class="fw-bold">{{ $tender->name }}</td>
                                                 <td class="fw-bold">{{ $tender->title }}</td>
 
@@ -191,7 +192,8 @@
 
                                                 @if ($tender->tenderDocument)
                                                     <td class="fw-bold">{{ $tender->tenderDocument->created_at }};</td>
-                                                @endif
+                                                @endif  
+                                               </tr>
                                             @endforeach
                                         @endif
 

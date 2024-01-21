@@ -28,7 +28,7 @@ class TenderOffer extends Controller
         }])->find($organizationId);
 
         $organizationfinish = MunaqasatcloudOrganization::with(['tenders' => function ($query) {
-            $query->where('state', 2)->where('open_date', '<', now())->with(['tenderApplicants.freelancer', 'tenderApplicants.tenderOffers']);
+            $query->where('state', 2)->with(['tenderApplicants.freelancer', 'tenderApplicants.tenderOffers']);
         }])->find($organizationId);
 
         // dd( $organization);

@@ -18,7 +18,7 @@ class Tender extends Controller
         //
        $UnderPreparation = MunaqasatcloudTender::where('state', 0)->where('organization_id',$organizationId)->get();//'قيد الأعداد'
     $Effective = MunaqasatcloudTender::where('state', 1)->where('organization_id',$organizationId)->get();//'فعالة'
-    $Finished = MunaqasatcloudTender::where('state', 3)->where('organization_id',$organizationId)->get();//'منتهية'
+    $Finished = MunaqasatcloudTender::where('state', 2)->where('organization_id',$organizationId)->get();//'منتهية'
     return view('back.munaqasatmloud.tenders.tenant.offers', compact('UnderPreparation' ,'Effective','Finished'));
     // return now()->addHours(3);
     }

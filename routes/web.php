@@ -6,11 +6,11 @@ use App\Http\Controllers\Account\SignoutController;
 use App\Http\Controllers\Account\SignupContractorController;
 
 use App\Http\Controllers\Account\UserController;
-use App\Http\Controllers\Contractor\ApplicantContractor;
-use App\Http\Controllers\Contractor\MyTender;
-use App\Http\Controllers\Contractor\OfferContractor;
-use App\Http\Controllers\Contractor\TenderContractor;
-use App\Http\Controllers\Contractor\TenderDocument;
+use App\Http\Controllers\MunaqasatCloud\ApplicantContractor;
+use App\Http\Controllers\MunaqasatCloud\MyTender;
+use App\Http\Controllers\MunaqasatCloud\OfferContractor;
+use App\Http\Controllers\MunaqasatCloud\TenderContractor;
+use App\Http\Controllers\MunaqasatCloud\TenderDocument;
 
 use App\Http\Controllers\dashboard\ContractorDashboardController;
 use App\Http\Controllers\dashboard\DashboardController;
