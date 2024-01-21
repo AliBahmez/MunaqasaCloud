@@ -35,7 +35,6 @@
                                 <thead>
                                     <tr class="text-white">
                                         <th scope="col">اسـم </th>
-                                        {{-- <th scope="col">عـنـوان </th> --}}
                                         <th scope="col">بـيـانـات الأتـصـال</th>
                                         <th scope="col">رقم السحل التجاري</th>
                                         <th scope="col">عـمـلـيـات</th>
@@ -45,7 +44,6 @@
                                     <tr hidden></tr>
                                     @foreach ($organizations as $org)
                                         <tr>
-                                            {{-- <td class="fw-bold">{{ $org->name }}</td> --}}
                                             <td class="fw-bold">{{ $org->title }}</td>
                                             <td class="fw-bold">{{ $org->contact_statement }}</td>
                                             <td class="fw-bold">{{ $org->trade_document }}</td>
@@ -77,7 +75,6 @@
                                 <thead>
                                     <tr class="text-white">
                                         <th scope="col">اسـم </th>
-                                        {{-- <th scope="col">عـنـوان </th> --}}
                                         <th scope="col">بـيـانـات الأتـصـال</th>
                                         <th scope="col">رقم السحل التجاري</th>
                                         <th scope="col">عـمـلـيـات</th>
@@ -86,7 +83,6 @@
                                 <tbody>
                                     @foreach ($Effective as $eff)
                                         <tr>
-                                            {{-- <td class="fw-bold">{{ $eff->name }}</td> --}}
                                             <td class="">{{ $eff->title }}</td>
                                             <td class="">{{ $eff->contact_statement }}</td>
                                             <td class="">{{ $eff->trade_document }}</td>
@@ -116,7 +112,6 @@
                                 <thead>
                                     <tr class="text-white">
                                         <th scope="col">اسـم </th>
-                                        {{-- <th scope="col">عـنـوان </th> --}}
                                         <th scope="col">بـيـانـات الأتـصـال</th>
                                         <th scope="col">رقم السحل التجاري</th>
                                         <th scope="col">عـمـلـيـات</th>
@@ -125,7 +120,6 @@
                                 <tbody>
                                     @foreach ($Blocked as $blo)
                                         <tr>
-                                            {{-- <td class="fw-bold">{{ $blo->name }}</td> --}}
                                             <td class="fw-bold">{{ $blo->title }}</td>
                                             <td class="fw-bold">{{ $blo->contact_statement }}</td>
                                             <td class="fw-bold">{{ $blo->trade_document }}</td>

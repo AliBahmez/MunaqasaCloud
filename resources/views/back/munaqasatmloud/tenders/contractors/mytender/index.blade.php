@@ -289,9 +289,7 @@
                                     context.textAlign = 'center';
                                     context.textBaseline = 'middle';
                                     var t = new Date();
-                                    // @php
-                                        //     echo now()
-                                        //
+                                    
                                     @endphp
                                     {{ $remainingTime = \Carbon\Carbon::parse($tender->ending_date)->locale('ar')->diff(now())->format('%d يوم') }}
                                     ;
