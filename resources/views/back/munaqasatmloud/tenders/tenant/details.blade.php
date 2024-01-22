@@ -90,25 +90,7 @@
 
 
         </div>
-        <script>
-            function toggleText() {
-                var shortText = document.getElementById('shortText');
-                var longText = document.getElementById('longText');
-                var showMoreBtn = document.getElementById('myBtn');
-
-                if (shortText.style.display === 'none') {
-                    // Currently displaying full text, switch to short text
-                    shortText.style.display = 'inline';
-                    longText.style.display = 'none';
-                    showMoreBtn.innerText = 'عـرض الـمـزيـد...';
-                } else {
-                    // Currently displaying short text, switch to full text
-                    shortText.style.display = 'none';
-                    longText.style.display = 'inline';
-                    showMoreBtn.innerText = 'إخفاء';
-                }
-            }
-        </script>
+     
 
     </div>
 

@@ -342,23 +342,63 @@
                 btnText.textContent = 'عـرض الـمـزيـد...';
             }
         }
+    
+        function toggleDescription() {
+            var moreText = document.getElementById("more");
+            var dots = document.getElementById("dots");
+            var btnText = document.getElementById("myBtn");
 
-       
-
-        function animateProgress() {
-            var progressToFill = progress / 100;
-            endAngle = (2 * Math.PI) * progressToFill + startAngle;
-
-            drawProgress();
-
-            if (progress < 55) {
-                progress++;
-                requestAnimationFrame(animateProgress);
+            if (moreText.style.display === "none") {
+                moreText.style.display = "inline";
+                dots.style.display = "none";
+                btnText.textContent = "إخفاء التفاصيل";
+            } else {
+                moreText.style.display = "none";
+                dots.style.display = "inline";
+                btnText.textContent = "عـرض الـمـزيـد...";
             }
         }
 
-        animateProgress();
+        function toggleDescription(btn) {
+            var parent = btn.parentElement;
+            var moreText = parent.querySelector(".more");
+            var dots = parent.querySelector(".dots");
+
+            if (moreText.style.display === "none" || moreText.style.display === "") {
+                moreText.style.display = "inline";
+                dots.style.display = "none";
+                btn.textContent = "إخفاء التفاصيل";
+            } else {
+                moreText.style.display = "none";
+                dots.style.display = "inline";
+                btn.textContent = "عـرض الـمـزيـد...";
+            }
+        }
+   
+    //    ***************
+    const dropArea = document.getElementById('drop-area');
+        const inputFile = document.getElementById('input-file');
+        const imageView = document.getElementById('img-view');
+
+        inputFile.addEventListener('change', uploadImage);
+
+        function uploadImage() {
+            let imgLink = URL.createObjectURL(inputFile.files[0]);
+            imageView.style.backgroundImage = `url(${imgLink})`;
+            imageView.textContent = '';
+            imageView.style.border = 0;
+        }
+
+        dropArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
         });
+
+        dropArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            inputFile.files = e.dataTransfer.files;
+            uploadImage();
+        })
+
     </script>
 </body>
 

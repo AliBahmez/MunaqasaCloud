@@ -75,22 +75,6 @@
         </div>
 
     </div>
-    <script>
-        function toggleDescription(btn) {
-            var parent = btn.parentElement;
-            var moreText = parent.querySelector(".more");
-            var dots = parent.querySelector(".dots");
-
-            if (moreText.style.display === "none" || moreText.style.display === "") {
-                moreText.style.display = "inline";
-                dots.style.display = "none";
-                btn.textContent = "...إخفاء التفاصيل";
-            } else {
-                moreText.style.display = "none";
-                dots.style.display = "inline";
-                btn.textContent = "عـرض الـمـزيـد...";
-            }
-        }
-    </script>
+   
 
 @endsection

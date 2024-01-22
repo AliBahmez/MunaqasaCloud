@@ -37,19 +37,19 @@
                             <label class="fw-bold " for="">تـاريـخ الـبـديـة</label>
                             <input type="date" name="starting_date" class="form-control myform-control my-2 py-2 m-0"
                                 id="floatingInput"
-                                value="{{ old('starting_date', \Carbon\Carbon::parse($tender->starting_date)->format('Y-d-m')) }}">
+                                value="{{ old('starting_date', \Carbon\Carbon::parse($tender->starting_date)->format('Y-m-d')) }}">
                         </div>
                         <div class="my-3">
                             <label class="fw-bold " for="">تـاريـخ الأنـتـهـاء</label>
                             <input type="date" name="ending_date" class="form-control myform-control my-2 py-2 m-0"
                                 id="floatingInput"
-                                value="{{ old('ending_date', \Carbon\Carbon::parse($tender->ending_date)->format('Y-d-m')) }}">
+                                value="{{ old('ending_date', \Carbon\Carbon::parse($tender->ending_date)->format('Y-m-d')) }}">
                         </div>
                         <div class="my-3">
-                            <label class="fw-bold " for="">تـاريـخ فـتـح الـمـظـاريـف</label>
+                            <label class="fw-bold" for="">تـاريـخ فـتـح الـمـظـاريـف</label>
                             <input type="date" name="open_date" class="form-control myform-control my-2 py-2 m-0"
                                 id="floatingInput"
-                                value="{{ old('open_date', \Carbon\Carbon::parse($tender->open_date)->format('Y-d-m')) }}">
+                                value="{{ old('open_date', \Carbon\Carbon::parse($tender->open_date)->format('Y-m-d')) }}">
                         </div>
                         <div class="my-3">
                             <label class="fw-bold " for="">مـكـان الـمـنـاقـصـة</label>

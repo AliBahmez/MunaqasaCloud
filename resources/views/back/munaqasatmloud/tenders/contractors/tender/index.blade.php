@@ -151,37 +151,5 @@
 
 
     </div>
-    <script>
-        function toggleDescription() {
-            var moreText = document.getElementById("more");
-            var dots = document.getElementById("dots");
-            var btnText = document.getElementById("myBtn");
-
-            if (moreText.style.display === "none") {
-                moreText.style.display = "inline";
-                dots.style.display = "none";
-                btnText.textContent = "إخفاء التفاصيل";
-            } else {
-                moreText.style.display = "none";
-                dots.style.display = "inline";
-                btnText.textContent = "عـرض الـمـزيـد...";
-            }
-        }
-
-        function toggleDescription(btn) {
-            var parent = btn.parentElement;
-            var moreText = parent.querySelector(".more");
-            var dots = parent.querySelector(".dots");
-
-            if (moreText.style.display === "none" || moreText.style.display === "") {
-                moreText.style.display = "inline";
-                dots.style.display = "none";
-                btn.textContent = "إخفاء التفاصيل";
-            } else {
-                moreText.style.display = "none";
-                dots.style.display = "inline";
-                btn.textContent = "عـرض الـمـزيـد...";
-            }
-        }
-    </script>
+  
 @endsection
