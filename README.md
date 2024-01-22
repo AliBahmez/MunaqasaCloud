@@ -62,6 +62,16 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+عندما يتم تنزيل الكود وقاعدة البيانات ويتم تشغيلها لأول مرة، فإن الصفحة الرئيسية في حاله دحولك الى التطبيق اضغط على زر "تسجيل الدخول" 
+اولأ دخولك كــ admin :
+ اسم المستخدم : admin
+ كلمة المرور : 123456
+ كـ مؤسسة :
+ اسم المستخدم : alkhair
+ كلمة المرور : 123456
+ كــ مقاول او عميل: 
+ سم المستخدم : ali
+ كلمة المرور : 123456
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
